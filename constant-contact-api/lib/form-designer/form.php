@@ -676,6 +676,12 @@ class CTCT_Form_Designer_Output {
 		} else {
 			$formInner = $errors . $success . $inputfields . $safesubscribelink . $hidden;
 		}
+/*
+		if( $this->is_current_form() && $success !='') {
+			$formInner = $success . $hidden;
+		} else {
+			$formInner = $errors . $success . $inputfields . $safesubscribelink . $hidden;
+		}*/
 
 
 $form = <<<EOD
@@ -687,6 +693,7 @@ $form = <<<EOD
 </form>
 </div>
 EOD;
+
 
 		if( !$this->debug ) {
 		#	$form = str_replace(array("\n", "\r", "\t"), ' ', $form);

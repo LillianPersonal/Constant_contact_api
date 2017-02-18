@@ -137,7 +137,7 @@ $css = <<<EOD
 {$selector} .cc_success {
 	margin:0!important;
 	padding:10px;
-	color: {$tcolor}!important;
+	color: green!important;
 }
 
 {$selector} {
@@ -150,6 +150,9 @@ $css = <<<EOD
 }
 {$selector} li {
 	list-style: none;
+	border-bottom: none;
+	padding-bottom: 0px;
+	background: none !important;
 }
 {$selector} blockquote, {$selector} q {
 	quotes: none;
@@ -260,7 +263,8 @@ $selector .cc_intro * {
 	color: {$lcolor};
 	font-size: {$lsize}px!important;
 	font-family: {$lfont};
-	display:block;
+	display: block;
+	padding-right: 5px;
 }
 
 
@@ -272,6 +276,14 @@ $selector .cc_intro * {
 {$selector} label.kws_italic { font-style:italic; } label.kws_italic input { text-style:normal; }
 
 .kws_clear { clear:both; }
+
+.error ul li label{
+	color: red !important;
+}
+
+.gfield_label{
+	display: inline-block !important;
+}
 
 EOD;
 
