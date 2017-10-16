@@ -111,6 +111,10 @@ class CTCT_Process_Form {
 		// Check If Email Is Real
 		$this->validateEmail( $KWSContact );
 
+		//if list selections exist, check if at least one checked.
+		$this->validateLists($_POST['cc-lists']);
+
+
 		$this->is_processed = true;
 
 		// If validation failed, stop processing
@@ -321,6 +325,29 @@ class CTCT_Process_Form {
 		unset( $output['constant-contact-signup-submit'] );
 
 		return $output;
+	}
+
+	/**
+	 * Validate mailing list selected.
+	 *
+	 * Check if at least one mailing list is in array
+	 *
+	 * If not, return error message
+	 *
+	 * @param  array $lists, list of selected mailing list ids
+	 *
+	 * @return boolean If at least one selected, return `true`, otherwise return `false` and set $this->errors with WP_Error
+	 */
+	function validateLists($lists){
+
+		if(empty($lists)){
+
+			$this->errors[] = new WP_Error( 'no_list', __( 'Please select a mailing list.', 'constant-contact-api' ), 'lists' );
+
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
